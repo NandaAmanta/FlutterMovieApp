@@ -12,11 +12,10 @@ class Recent extends StatefulWidget {
 
 class _RecentState extends State<Recent> {
   MovieClientApi movieClientApi = new MovieClientApi();
-  ScrollController _controller = new ScrollController();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SingleChildScrollView(
       child: Card(
         color: Colors.white,
         elevation: 5,
@@ -28,10 +27,9 @@ class _RecentState extends State<Recent> {
                 List<MovieItemResponse> movies = snapshot.data!;
                 
                 return ListView.builder(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  controller: _controller,
+                  physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 10,
+                  itemCount: 20,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context,index){
                   return Padding(
