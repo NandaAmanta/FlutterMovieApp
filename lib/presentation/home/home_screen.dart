@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:suka_nonton/presentation/AppBar/bottom_app_bar.dart';
-import 'package:suka_nonton/presentation/home/recent.dart';
-import 'package:suka_nonton/presentation/home/recomendation.dart';
+import 'package:suka_nonton/presentation/home/components/recent.dart';
+import 'package:suka_nonton/presentation/home/components/recomendation.dart';
 import 'package:suka_nonton/value/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: color1,
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  
+                },
                 icon: Icon(
                   Icons.star,
                   color: Colors.amber,
@@ -65,6 +69,6 @@ class _HomeScreenState extends State<HomeScreen> {
             Recent()
           ],
         ),
-        bottomNavigationBar: BottomAppBarWidget());
+        bottomNavigationBar: BottomAppBarWidget(selectedIndex: selectedIndex,));
   }
 }

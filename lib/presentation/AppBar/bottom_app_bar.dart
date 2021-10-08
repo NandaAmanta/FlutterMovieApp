@@ -1,64 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:suka_nonton/presentation/search/search_sreen.dart';
 import 'package:suka_nonton/value/colors.dart';
 
-class BottomAppBarWidget extends StatelessWidget {
-  const BottomAppBarWidget({
-    Key? key,
-  }) : super(key: key);
+class BottomAppBarWidget extends StatefulWidget {
+  int selectedIndex = 0;
+  BottomAppBarWidget({Key? key, required int selectedIndex}) : super(key: key);
+
+  @override
+  _BottomAppBarWidgetState createState() =>
+      _BottomAppBarWidgetState(selectedIndex);
+}
+
+class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
+  int selectedIndex;
+
+  _BottomAppBarWidgetState(this.selectedIndex);
 
   @override
   Widget build(BuildContext context) {
-    List<BottomNavigationBarItem> buildBottomNavBarItems() {
-      return [
-        BottomNavigationBarItem(
-            icon: IconButton(
-              icon: Icon(
-                Icons.home,
-                color: Colors.white,
-                size: 25,
-              ),
-              onPressed: () {},
-            ),
-            title: new Text('Red')),
-        BottomNavigationBarItem(
-          icon: IconButton(
+    return BottomNavigationBar(
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.blueGrey,
+        unselectedIconTheme: IconThemeData(color: Colors.blueGrey),
+        selectedIconTheme: IconThemeData(color: Colors.white),
+        type: BottomNavigationBarType.fixed,
+        elevation: 5,
+        items: [
+          BottomNavigationBarItem(
+            label: "Home",
             icon: Icon(
-              Icons.search,
-              color: Colors.white,
+              Icons.home,
               size: 25,
             ),
-            onPressed: () {},
           ),
-          title: new Text('Blue'),
-        ),
-        BottomNavigationBarItem(
-            icon: IconButton(
-              icon: Icon(
-                Icons.favorite_border,
-                color: Colors.white,
-                size: 25,
-              ),
-              onPressed: () {},
+          BottomNavigationBarItem(
+            label: "Search",
+            icon: Icon(
+              Icons.search,
+              size: 25,
             ),
-            title: Text('Yellow')),
-        BottomNavigationBarItem(
-            icon: IconButton(
-              icon: Icon(
-                Icons.person_pin,
-                color: Colors.white,
-                size: 25,
-              ),
-              onPressed: () {},
+          ),
+          BottomNavigationBarItem(
+            label: "Favorite",
+            icon: Icon(
+              Icons.favorite_border,
+              size: 25,
             ),
-            title: Text('Yellow'))
-      ];
-    }
-
-    return BottomNavigationBar(
-      items: buildBottomNavBarItems(),
-      backgroundColor: color1,
-      currentIndex: 0,
-    );
+          ),
+          BottomNavigationBarItem(
+            label: "Profile",
+            icon: Icon(
+              Icons.person_pin,
+              size: 25,
+            ),
+          ),
+        ],
+        backgroundColor: color1,
+        currentIndex: selectedIndex,
+        onTap: (int index) {
+          setState(() {
+            print(index);
+            selectedIndex = index;
+          });
+        });
   }
 }
