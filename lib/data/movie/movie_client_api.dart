@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'model/list_response.dart';
 import 'model/movie_item_response.dart';
+import 'model/genres_response.dart';
 
 const String BASE_URL = 'https://api.themoviedb.org/3';
 const String IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -35,5 +36,20 @@ class MovieClientApi {
 
     movies = moviesResponse.results;
     return movies;
+  }
+
+  Future<Genres> getGenresMovies() async {
+    Genres genres;
+
+    Response response = await _dio.get(
+      '/genre/movie/list',
+      queryParameters: {
+        'api_key': API_KEY,
+        'language': LANGUAGE,
+      },
+    );
+
+    genres = Genres.fromJson(response.data);
+    return genres;
   }
 }

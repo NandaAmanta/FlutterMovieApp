@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:suka_nonton/presentation/home/components/recent.dart';
+import 'package:suka_nonton/value/colors.dart';
+import 'package:suka_nonton/data/movie/movie_client_api.dart';
+import 'package:suka_nonton/data/movie/model/genres_response.dart';
+import 'search_bar.dart';
+import 'genres_option.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -9,26 +14,18 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  MovieClientApi movieClientApi = new MovieClientApi();
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20,right: 20,top: 20),
       child: Column(
         children: [
-          Container(
-            height: 60,
-            decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),color: Colors.white,),
-            
-            child: TextField(
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Search Your Movie ...' ),
-                  
-                  
-            ),
+          SearchBar(),
+          GenresOption(movieClientApi: movieClientApi),
+          SizedBox(
+            height: 20,
           ),
-          SizedBox(height: 50,),
           Expanded(
-            
             child: Recent(),
           )
         ],
@@ -36,3 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 }
+
+
+
+
