@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:suka_nonton/data/local/hive_db.dart';
+import 'package:suka_nonton/data/model/movie_item_adapter.dart';
+import 'package:suka_nonton/presentation/favorite/favorite_screen.dart';
 
 import 'package:suka_nonton/presentation/home/components/recent.dart';
 import 'package:suka_nonton/presentation/home/components/recomendation.dart';
+import 'package:suka_nonton/presentation/profile/profile_screen.dart';
 import 'package:suka_nonton/presentation/search/search_sreen.dart';
 import 'package:suka_nonton/value/colors.dart';
 
@@ -16,6 +21,23 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   PageController pageController = PageController();
 
+  late Box<MovieItemAdapter> favoriteFilmBox;
+
+  @override
+  void initState() {
+    super.initState();
+    favoriteFilmBox = HiveDb().openMovieItemBox();
+    
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+
+    super.dispose();
+    HiveDb().close();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: color1,
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  favoriteFilmBox.clear();
+                },
                 icon: Icon(
                   Icons.star,
                   color: Colors.amber,
@@ -33,10 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text("Suka Nonton"),
         ),
         body: PageView(
-          onPageChanged: (inx){
+          onPageChanged: (inx) {
             print(inx);
             setState(() {
-              
               selectedIndex = inx;
             });
           },
@@ -78,6 +101,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SearchScreen(),
+            FavoriteScreen(),
+            ProfileScreen()
           ],
           controller: pageController,
         ),

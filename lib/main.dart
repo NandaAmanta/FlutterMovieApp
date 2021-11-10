@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:suka_nonton/data/local/hive_db.dart';
 import 'package:suka_nonton/presentation/home/home_screen.dart';
 
-void main() {
+void main() async {
+  await HiveDb().initHiveDataBase();
   runApp(MyApp());
 }
 
