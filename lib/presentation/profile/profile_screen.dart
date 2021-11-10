@@ -67,7 +67,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Text("Setting",
                         style: TextStyle(color: Colors.white70, fontSize: 20)),
                     Expanded(child: Container()),
-                    Icon(Icons.arrow_back_ios_new,color: Colors.white,textDirection: TextDirection.ltr,)
+                    Transform.rotate(
+                      angle: 9.4,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    )
                   ],
                 ),
               )),
@@ -89,7 +96,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       width: 10,
                     ),
                     Text("Rating",
-                        style: TextStyle(color: Colors.white70, fontSize: 20))
+                        style: TextStyle(color: Colors.white70, fontSize: 20)),
+                    Expanded(child: Container()),
+                    Transform.rotate(
+                      angle: 9.4,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    )
                   ],
                 ),
               )),
@@ -111,7 +127,78 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       width: 10,
                     ),
                     Text("Edit Profile",
-                        style: TextStyle(color: Colors.white70, fontSize: 20))
+                        style: TextStyle(color: Colors.white70, fontSize: 20)),
+                    Expanded(child: Container()),
+                    Transform.rotate(
+                      angle: 9.4,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    )
+                  ],
+                ),
+              )),
+          Container(
+              decoration: BoxDecoration(
+                  color: color1,
+                  border: Border(
+                      bottom: BorderSide(width: 1, color: Colors.black26),
+                      top: BorderSide(width: 1, color: Colors.black26))),
+              padding: EdgeInsets.only(top: 10, bottom: 10, left: 10),
+              child: InkWell(
+                onTap: () {
+                  print("haii");
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.construction,color: color4),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("Coming soon",
+                        style: TextStyle(color: Colors.white70, fontSize: 20)),
+                    Expanded(child: Container()),
+                    Transform.rotate(
+                      angle: 9.4,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    )
+                  ],
+                ),
+              )),
+          Container(
+              decoration: BoxDecoration(
+                  color: color1,
+                  border: Border(
+                      bottom: BorderSide(width: 1, color: Colors.black26),
+                      top: BorderSide(width: 1, color: Colors.black26))),
+              padding: EdgeInsets.only(top: 10, bottom: 10, left: 10),
+              child: InkWell(
+                onTap: () {
+                  print("haii");
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.construction, color: color4),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("Coming soon",
+                        style: TextStyle(color: Colors.white70, fontSize: 20)),
+                    Expanded(child: Container()),
+                    Transform.rotate(
+                      angle: 9.4,
+                      child: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                        textDirection: TextDirection.ltr,
+                      ),
+                    )
                   ],
                 ),
               )),

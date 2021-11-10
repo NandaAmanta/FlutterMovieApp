@@ -40,74 +40,78 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         )
       ]);
     }
-    return GridView.count(
-        shrinkWrap: true,
-        crossAxisCount: 3,
-        children: List.generate(favoriteFilmBox.length, (index) {
-          return Container(
-            width: 110,
-            height: 220,
-            margin: EdgeInsets.only(left: 10, right: 10,bottom: 0),
-            child: InkWell(
-                child: Card(
-              color: color1,
-              elevation: 10,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.network(
-                    '$IMAGE_BASE_URL${favoriteFilmBox.get(index)!.image}',
-                    width: 100,
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        favoriteFilmBox.get(index)!.title,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(height: 5),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star,
-                            color: color2,
-                            size: 15,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: color2,
-                            size: 15,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: color2,
-                            size: 15,
-                          ),
-                          Icon(
-                            Icons.star,
-                            color: color2,
-                            size: 15,
-                          ),
-                          Icon(
-                            Icons.star_border_outlined,
-                            color: color2,
-                            size: 15,
-                          )
-                        ],
-                      )
-                    ],
-                  )
-                ],
-              ),
-            )),
-          );
-        }));
+    return Container(
+      padding: EdgeInsets.only(top: 20),
+      child: GridView.count(
+        childAspectRatio: (110/200),
+          shrinkWrap: true,
+          crossAxisCount: 3,
+          children: List.generate(favoriteFilmBox.length, (index) {
+            return Container(
+              width: 110,
+              height: 220,
+              margin: EdgeInsets.only(left: 10, right: 10,bottom: 10),
+              child: InkWell(
+                  child: Card( 
+                color: color1,
+                elevation: 10,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.network(
+                      '$IMAGE_BASE_URL${favoriteFilmBox.get(index)!.image}',
+                      width: 100,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          favoriteFilmBox.get(index)!.title,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 5),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.star,
+                              color: color2,
+                              size: 15,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: color2,
+                              size: 15,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: color2,
+                              size: 15,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: color2,
+                              size: 15,
+                            ),
+                            Icon(
+                              Icons.star_border_outlined,
+                              color: color2,
+                              size: 15,
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              )),
+            );
+          })),
+    );
   }
 }
