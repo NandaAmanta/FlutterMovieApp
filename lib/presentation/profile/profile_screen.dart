@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:suka_nonton/value/colors.dart';
 
+import 'component/profile_user.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -15,35 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       padding: EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.only(left: 25, right: 25),
-            child: Row(
-              children: [
-                Container(
-                    width: 70.0,
-                    height: 70.0,
-                    decoration: new BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: new DecorationImage(
-                            fit: BoxFit.fill,
-                            image: new AssetImage("images/profile.jpg")))),
-                SizedBox(width: 40),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Guest",
-                      style: TextStyle(color: Colors.white70, fontSize: 30),
-                    ),
-                    Text(
-                      "this is just dummy account",
-                      style: TextStyle(color: Colors.white30, fontSize: 15),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
+          ProfileUser(),
           SizedBox(
             height: 20,
           ),
@@ -207,3 +181,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 }
+
+
